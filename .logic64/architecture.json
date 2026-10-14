@@ -1,0 +1,568 @@
+{
+  "arch_version": 1,
+  "project_id": "464ceb2b-cdb5-4fb8-82ad-b9b4544c74e4",
+  "generated_at": "2026-10-14T17:56:37.025Z",
+  "low_level": {
+    "frontend": {
+      "routes": [
+        {
+          "id": "route_home",
+          "path": "/",
+          "purpose": "Single public homepage for city search, location selection, current weather, forecast cards, loading, error, and retry states.",
+          "access_role_ids": [
+            "role_public"
+          ]
+        }
+      ],
+      "structure": [
+        {
+          "id": "dir_backend_api",
+          "dir": "backend api",
+          "purpose": "Lightweight Node.js REST JSON API routes."
+        },
+        {
+          "id": "dir_cache_layer",
+          "dir": "cache layer",
+          "purpose": "Ten-minute weather response cache handling."
+        },
+        {
+          "id": "dir_frontend_app",
+          "dir": "frontend app",
+          "purpose": "React web application shell and homepage composition."
+        },
+        {
+          "id": "dir_integration_services",
+          "dir": "integration services",
+          "purpose": "External geocoding and weather provider clients."
+        },
+        {
+          "id": "dir_shared_types",
+          "dir": "shared types",
+          "purpose": "Shared TypeScript models for city, coordinates, weather, forecast, cache, and API responses."
+        },
+        {
+          "id": "dir_ui_components",
+          "dir": "UI components",
+          "purpose": "Search form, location selector, current weather panel, forecast cards, loading, error, and retry components."
+        }
+      ]
+    },
+    "backend": {
+      "modules": [
+        {
+          "id": "mod_cache",
+          "name": "Cache",
+          "responsibility": "Read, write, expire, and refresh temporary cached API responses after 10 minutes.",
+          "depends_on_ids": []
+        },
+        {
+          "id": "mod_errors",
+          "name": "Errors",
+          "responsibility": "Normalize unknown city, external API failure, network failure, and timeout responses for retryable UI states.",
+          "depends_on_ids": []
+        },
+        {
+          "id": "mod_geocoding",
+          "name": "Geocoding",
+          "responsibility": "Search external geocoding API for matching city locations and return selectable candidates.",
+          "depends_on_ids": []
+        },
+        {
+          "id": "mod_search",
+          "name": "Search",
+          "responsibility": "Coordinate city search, weather retrieval, cache checks, errors, timeouts, and response shaping.",
+          "depends_on_ids": [
+            "mod_cache",
+            "mod_geocoding",
+            "mod_weather"
+          ]
+        },
+        {
+          "id": "mod_weather",
+          "name": "Weather",
+          "responsibility": "Fetch current weather observations and five-day forecasts for selected coordinates.",
+          "depends_on_ids": []
+        }
+      ]
+    },
+    "data": {
+      "entities": [
+        {
+          "id": "ent_city_names",
+          "name": "City names",
+          "fields": [
+            {
+              "name": "query",
+              "type": "string",
+              "notes": "City text entered by the user."
+            },
+            {
+              "name": "matchedName",
+              "type": "string",
+              "notes": "City name returned by geocoding."
+            }
+          ],
+          "relations": [
+            {
+              "to_entity_id": "ent_countries",
+              "kind": "belongs to"
+            }
+          ]
+        },
+        {
+          "id": "ent_countries",
+          "name": "Countries",
+          "fields": [
+            {
+              "name": "countryCode",
+              "type": "string",
+              "notes": "Country code from geocoding provider."
+            },
+            {
+              "name": "countryName",
+              "type": "string",
+              "notes": "Display country name when available."
+            }
+          ],
+          "relations": []
+        },
+        {
+          "id": "ent_current_weather_observations",
+          "name": "Current weather observations",
+          "fields": [
+            {
+              "name": "temperatureCelsius",
+              "type": "number",
+              "notes": "Current temperature in Celsius."
+            },
+            {
+              "name": "conditions",
+              "type": "string",
+              "notes": "Current weather condition text."
+            },
+            {
+              "name": "humidity",
+              "type": "number",
+              "notes": "Current humidity value."
+            },
+            {
+              "name": "windSpeed",
+              "type": "number",
+              "notes": "Current wind speed value."
+            },
+            {
+              "name": "weatherIcon",
+              "type": "string",
+              "notes": "Weather icon reference from provider."
+            },
+            {
+              "name": "lastUpdatedTime",
+              "type": "datetime",
+              "notes": "Provider or API last updated timestamp."
+            }
+          ],
+          "relations": [
+            {
+              "to_entity_id": "ent_geographic_coordinates",
+              "kind": "for coordinates"
+            }
+          ]
+        },
+        {
+          "id": "ent_five_day_weather_forecasts",
+          "name": "Five-day weather forecasts",
+          "fields": [
+            {
+              "name": "date",
+              "type": "date",
+              "notes": "Forecast day."
+            },
+            {
+              "name": "minTemperatureCelsius",
+              "type": "number",
+              "notes": "Daily minimum temperature."
+            },
+            {
+              "name": "maxTemperatureCelsius",
+              "type": "number",
+              "notes": "Daily maximum temperature."
+            },
+            {
+              "name": "conditions",
+              "type": "string",
+              "notes": "Forecast weather condition text."
+            }
+          ],
+          "relations": [
+            {
+              "to_entity_id": "ent_geographic_coordinates",
+              "kind": "for coordinates"
+            }
+          ]
+        },
+        {
+          "id": "ent_geographic_coordinates",
+          "name": "Geographic coordinates",
+          "fields": [
+            {
+              "name": "latitude",
+              "type": "number",
+              "notes": "Selected city's latitude."
+            },
+            {
+              "name": "longitude",
+              "type": "number",
+              "notes": "Selected city's longitude."
+            }
+          ],
+          "relations": [
+            {
+              "to_entity_id": "ent_city_names",
+              "kind": "located by"
+            }
+          ]
+        },
+        {
+          "id": "ent_temporary_cached_api_responses",
+          "name": "Temporary cached API responses",
+          "fields": [
+            {
+              "name": "cacheKey",
+              "type": "string",
+              "notes": "Key based on selected coordinates and request type."
+            },
+            {
+              "name": "payload",
+              "type": "json",
+              "notes": "Cached weather response data."
+            },
+            {
+              "name": "createdAt",
+              "type": "datetime",
+              "notes": "Cache creation time."
+            },
+            {
+              "name": "expiresAt",
+              "type": "datetime",
+              "notes": "Ten-minute expiration timestamp."
+            }
+          ],
+          "relations": [
+            {
+              "to_entity_id": "ent_geographic_coordinates",
+              "kind": "cached for"
+            }
+          ]
+        }
+      ],
+      "state_cache": {
+        "client_state": "React Query manages search, loading, error, retry, and fetched weather state on the client.",
+        "cache_rules": [
+          "Weather API responses are cached for 10 minutes.",
+          "Expired cache entries trigger a fresh external weather request.",
+          "A new city search replaces the previous displayed results.",
+          "Unknown cities, external API failures, network failures, and timeouts produce retryable error states."
+        ]
+      }
+    },
+    "api": {
+      "endpoints": [
+        {
+          "id": "ep_search_locations",
+          "method": "GET",
+          "path": "/api/locations/search",
+          "module_id": "mod_geocoding",
+          "auth_role_ids": [
+            "role_public"
+          ],
+          "request": "City name query string.",
+          "response": "Matching city names, countries, and geographic coordinates for user selection."
+        },
+        {
+          "id": "ep_weather_summary",
+          "method": "GET",
+          "path": "/api/weather",
+          "module_id": "mod_search",
+          "auth_role_ids": [
+            "role_public"
+          ],
+          "request": "Selected latitude and longitude.",
+          "response": "Current weather observations, five-day weather forecasts, cache status, and last updated time."
+        }
+      ]
+    },
+    "auth": {
+      "roles": [
+        {
+          "id": "role_public",
+          "name": "Public read-only access"
+        }
+      ],
+      "matrix": [
+        {
+          "role_id": "role_public",
+          "resource": "Homepage",
+          "actions": [
+            "view"
+          ]
+        },
+        {
+          "role_id": "role_public",
+          "resource": "Location search API",
+          "actions": [
+            "read"
+          ]
+        },
+        {
+          "role_id": "role_public",
+          "resource": "Weather API",
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    },
+    "flows": [
+      {
+        "id": "flow_city_weather_lookup",
+        "name": "City weather lookup",
+        "steps": [
+          "User opens the homepage.",
+          "User enters a city name.",
+          "Frontend calls the location search endpoint.",
+          "Backend requests matching locations from geocoding provider.",
+          "Frontend shows selectable matches when multiple locations are returned.",
+          "User selects a location.",
+          "Frontend calls the weather endpoint with selected coordinates.",
+          "Backend checks the ten-minute weather cache.",
+          "If cache is valid, backend returns cached current weather and forecast.",
+          "If cache is expired or absent, backend fetches current weather and five-day forecast from the external weather provider.",
+          "Backend stores the fresh response in cache.",
+          "Frontend displays current weather and forecast cards.",
+          "A new search replaces the previous weather result."
+        ],
+        "error_paths": [
+          {
+            "at": "Location search",
+            "on": "Unknown city",
+            "then": "Show no-results error and allow a new search."
+          },
+          {
+            "at": "External API call",
+            "on": "Provider failure",
+            "then": "Show retryable error state."
+          },
+          {
+            "at": "External API call",
+            "on": "Network failure or timeout",
+            "then": "Show retry option and preserve the search input."
+          },
+          {
+            "at": "Weather cache",
+            "on": "Expired cache entry",
+            "then": "Fetch a fresh response from the weather provider."
+          }
+        ]
+      },
+      {
+        "id": "flow_retry_weather_request",
+        "name": "Retry weather request",
+        "steps": [
+          "User selects retry after a failed weather request.",
+          "Frontend repeats the weather request for the same selected coordinates.",
+          "Backend checks cache and provider again using the same error handling rules.",
+          "Frontend replaces the error state with weather data if successful."
+        ],
+        "error_paths": [
+          {
+            "at": "Retry request",
+            "on": "Repeated failure",
+            "then": "Keep retryable error state visible."
+          }
+        ]
+      }
+    ],
+    "build_order": [
+      {
+        "phase_id": "phase_data_model",
+        "summary": "Define weather domain entities and temporary cache storage.",
+        "target_ids": [
+          "ent_city_names",
+          "ent_countries",
+          "ent_current_weather_observations",
+          "ent_five_day_weather_forecasts",
+          "ent_geographic_coordinates",
+          "ent_temporary_cached_api_responses"
+        ]
+      },
+      {
+        "phase_id": "phase_backend_modules",
+        "summary": "Create geocoding, weather, cache, search, and error handling modules.",
+        "target_ids": [
+          "mod_cache",
+          "mod_errors",
+          "mod_geocoding",
+          "mod_search",
+          "mod_weather"
+        ]
+      },
+      {
+        "phase_id": "phase_api_contracts",
+        "summary": "Expose public REST JSON endpoints for location search and weather summary.",
+        "target_ids": [
+          "ep_search_locations",
+          "ep_weather_summary"
+        ]
+      },
+      {
+        "phase_id": "phase_frontend_home",
+        "summary": "Build the single homepage search-and-results experience.",
+        "target_ids": [
+          "dir_frontend_app",
+          "dir_ui_components",
+          "route_home"
+        ]
+      },
+      {
+        "phase_id": "phase_shared_structure",
+        "summary": "Organize shared types, backend API, integration services, and cache layer directories.",
+        "target_ids": [
+          "dir_backend_api",
+          "dir_cache_layer",
+          "dir_integration_services",
+          "dir_shared_types"
+        ]
+      },
+      {
+        "phase_id": "phase_access_rules",
+        "summary": "Apply public read-only access across homepage and APIs.",
+        "target_ids": [
+          "role_public"
+        ]
+      },
+      {
+        "phase_id": "phase_flows",
+        "summary": "Validate lookup, cache, error, and retry flows end-to-end.",
+        "target_ids": [
+          "flow_city_weather_lookup",
+          "flow_retry_weather_request"
+        ]
+      }
+    ],
+    "handoff_notes": [
+      "Keep the MVP to one public homepage and two public API endpoints.",
+      "Do not add authentication, accounts, admin screens, payments, subscriptions, favorites, or city comparisons.",
+      "Use the backend API to protect external weather provider details from the browser.",
+      "Cache only temporary weather API responses for 10 minutes.",
+      "Represent reporting or diagnostics through logs/tests only; do not add extra persisted domain entities.",
+      "The high-level draft remains editable until final lock approval."
+    ]
+  },
+  "adrs": [
+    {
+      "adrNumber": 1,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "infra.hosting",
+      "decision": "Managed web hosting and managed API hosting"
+    },
+    {
+      "adrNumber": 10,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "arch.access_control",
+      "decision": "Public read-only access"
+    },
+    {
+      "adrNumber": 11,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "data.schema_outline",
+      "decision": "search_requests, location_candidates, selected_location, weather_snapshot, forecast_day, cache_entry, api_error"
+    },
+    {
+      "adrNumber": 12,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.auth_provider",
+      "decision": "none"
+    },
+    {
+      "adrNumber": 13,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "arch.folder_structure",
+      "decision": "frontend app, backend api, shared types, integration services, cache layer, UI components"
+    },
+    {
+      "adrNumber": 14,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "arch.routing_convention",
+      "decision": "Single homepage with search results below, plus API endpoints for geocoding and weather"
+    },
+    {
+      "adrNumber": 15,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.database_provider",
+      "decision": "Managed PostgreSQL"
+    },
+    {
+      "adrNumber": 2,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "arch.api_style",
+      "decision": "REST JSON API"
+    },
+    {
+      "adrNumber": 3,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.database",
+      "decision": "PostgreSQL"
+    },
+    {
+      "adrNumber": 4,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.language",
+      "decision": "TypeScript"
+    },
+    {
+      "adrNumber": 5,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.forbidden",
+      "decision": "none"
+    },
+    {
+      "adrNumber": 6,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.framework",
+      "decision": "React web app with a lightweight Node.js API"
+    },
+    {
+      "adrNumber": 7,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.ui_library",
+      "decision": "Tailwind CSS"
+    },
+    {
+      "adrNumber": 8,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "infra.file_storage",
+      "decision": "none"
+    },
+    {
+      "adrNumber": 9,
+      "governsElementIds": [],
+      "status": "accepted",
+      "decisionKey": "stack.client_state",
+      "decision": "React Query"
+    }
+  ]
+}

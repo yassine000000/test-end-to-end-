@@ -1,0 +1,152 @@
+[
+  {
+    "element_id": "dir_backend_api",
+    "path_glob": "backend api/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "dir_cache_layer",
+    "path_glob": "cache layer/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "dir_frontend_app",
+    "path_glob": "frontend app/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "dir_integration_services",
+    "path_glob": "integration services/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "dir_shared_types",
+    "path_glob": "shared types/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "dir_ui_components",
+    "path_glob": "UI components/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_city_names",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_city_names",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_countries",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_countries",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_current_weather_observations",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_current_weather_observations",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_five_day_weather_forecasts",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_five_day_weather_forecasts",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_geographic_coordinates",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_geographic_coordinates",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_temporary_cached_api_responses",
+    "path_glob": "**/schema.ts",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ent_temporary_cached_api_responses",
+    "path_glob": "drizzle/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ep_search_locations",
+    "path_glob": "src/modules/geocoding/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "ep_weather_summary",
+    "path_glob": "src/modules/search/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "mod_cache",
+    "path_glob": "src/modules/cache/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "mod_errors",
+    "path_glob": "src/modules/errors/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "mod_geocoding",
+    "path_glob": "src/modules/geocoding/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "mod_search",
+    "path_glob": "src/modules/search/**",
+    "binding_source": "generated",
+    "confidence": 1
+  },
+  {
+    "element_id": "mod_weather",
+    "path_glob": "src/modules/weather/**",
+    "binding_source": "generated",
+    "confidence": 1
+  }
+]

@@ -1,0 +1,184 @@
+{
+  "pulled_at": "2026-10-14T17:56:41.312Z",
+  "bundle_id": "64905ad4-8f93-43d6-b720-23bee65297a0",
+  "resolutions": [],
+  "files_written": [
+    {
+      "destination": "D:\\test-end-to-end\\.claude\\agents\\code-quality-reviewer.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.claude\\agents\\database-specialist.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.claude\\agents\\framework-specialist.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.claude\\mcp.json",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.logic64\\architecture.json",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.logic64\\bindings.json",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\.logic64\\state.json",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\AGENTS.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\CLAUDE.local.md",
+      "strategy": "skip_if_exists"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\CLAUDE.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\GEMINI.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\README.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\apis\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\architecture\\backend.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\architecture\\database.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\architecture\\frontend.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\architecture\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\architecture\\system.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\context\\project.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-001.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-002.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-003.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-004.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-005.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-006.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-007.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-008.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-009.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-010.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-011.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-012.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-013.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-014.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\adr-015.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\decisions\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\manifest.json",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\protocol.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\rules\\architecture.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\rules\\coding.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\rules\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\schemas\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\docs\\okf\\workflows\\index.md",
+      "strategy": "overwrite"
+    },
+    {
+      "destination": "D:\\test-end-to-end\\tasks.md",
+      "strategy": "overwrite"
+    }
+  ],
+  "warnings": []
+}

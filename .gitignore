@@ -1,0 +1,9 @@
+# Added by logic64 pull (bundle did not include .gitignore)
+CLAUDE.local.md
+.env
+.env.local
+.logic64.ack-pending
+.logic64/cache/
+node_modules/
+.next/
+dist/

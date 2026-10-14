@@ -1,0 +1,317 @@
+{
+  "okf_version": "1.0",
+  "knowledge_version": 1,
+  "renderer_version": 2,
+  "content_hash": "sha256-cdaa10f471243885fd695588d60fb5f5840a966a553c948506e0f3de0d6bf421",
+  "generated_at": "2026-10-14T14:26:47.266641+00:00",
+  "entry": "index.md",
+  "protocol": "protocol.md",
+  "sections": {
+    "architecture": [
+      "backend.md",
+      "database.md",
+      "frontend.md",
+      "index.md",
+      "system.md"
+    ],
+    "rules": [
+      "architecture.md",
+      "coding.md",
+      "index.md"
+    ],
+    "decisions": [
+      "adr-001.md",
+      "adr-002.md",
+      "adr-003.md",
+      "adr-004.md",
+      "adr-005.md",
+      "adr-006.md",
+      "adr-007.md",
+      "adr-008.md",
+      "adr-009.md",
+      "adr-010.md",
+      "adr-011.md",
+      "adr-012.md",
+      "adr-013.md",
+      "adr-014.md",
+      "adr-015.md",
+      "adr-016.md",
+      "adr-017.md",
+      "adr-018.md",
+      "adr-019.md",
+      "index.md"
+    ],
+    "context": [
+      "project.md"
+    ],
+    "apis": [
+      "index.md"
+    ],
+    "schemas": [
+      "index.md"
+    ],
+    "workflows": [
+      "index.md"
+    ]
+  },
+  "provenance": {
+    "apis/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-3a57b1a6fc35f48df391a21706562222700baf33e353555908ac5fefd4af7e4b",
+      "source_refs": [
+        "low_level_state.api"
+      ]
+    },
+    "architecture/backend.md": {
+      "provenance": "",
+      "arch_version": "",
+      "renderer_version": "",
+      "content_hash": "",
+      "source_refs": []
+    },
+    "architecture/database.md": {
+      "provenance": "",
+      "arch_version": "",
+      "renderer_version": "",
+      "content_hash": "",
+      "source_refs": []
+    },
+    "architecture/frontend.md": {
+      "provenance": "",
+      "arch_version": "",
+      "renderer_version": "",
+      "content_hash": "",
+      "source_refs": []
+    },
+    "architecture/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-10d551978a95e4a39c884e2664a31bc37d9d106a49beb3503d110ffe21d0da8e",
+      "source_refs": [
+        "generated_tree"
+      ]
+    },
+    "architecture/system.md": {
+      "provenance": "",
+      "arch_version": "",
+      "renderer_version": "",
+      "content_hash": "",
+      "source_refs": []
+    },
+    "context/project.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-364ed48d7550c48289ca18d33a30a1fc2fa44aabf1381bc1dbc784d0618e6e30",
+      "source_refs": [
+        "product_brief"
+      ]
+    },
+    "decisions/adr-001.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-2ae8ca36fd245d0b228cbc64b290ef262b71e67f6e30311436d7ee6ed3efcaeb",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-002.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-e380f1ae3b7cc1652c973a4453282b5257d2d99554ad2506242e2874d03497cf",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-003.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-68dcf2a77b9b429bbc7cafe9fde9a3376fc93cdc47a03ed8cb1a821ce341244e",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-004.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-4194c59b5bd71213452c38b853d5392c2716d2da35049c0c6053eed37a653a03",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-005.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-ebfb8ad8a98d5d8e52981ad3fee2dbe9d0986a8e34ee5652da123829f7a0767d",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-006.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-873aa17d2178f010f3c1c19dbec1d0d3aaeea5f6e5bfdbd92ae9247517b31ac3",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-007.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-bb8a072fb3611aead26f3b275aa2b51d2e65ed5413d76bd0508c5b6c5c1427f3",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-008.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-cf1e8e0794bf241df9adbc552096a09da11027c5e7d1ef1bc08f3ed764b37729",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-009.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-509e956e1d5ccde0999da7c0aa1dcde60c433c6091a17fddf58565de9f30c033",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-010.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-dacc93feb918c92854e0ddd671b652041a675addef7504224383c5a286900477",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-011.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-c18b4dc72f301a2102ee666abed7c76af0670c1442bf78460a3c29892c01b1dd",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-012.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-44bd026b36addc5400af0a4d9b797eacca889df437693f32b2799439455b37b8",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-013.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-cbee46040094195c0d0177d58751f90fe12677c8bd9c5b0e97293a8107fc0232",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-014.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-b8e9e3e99c6f2ee0515a691620253dd655f41afbff6360b2c6eef81ffaebc5ae",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/adr-015.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-942aaaf4357657a906acf00dfeb94c63d1967076c53d4eb9f6c246bdf11eaa9c",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "decisions/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-22da3eb74183a0ad1c8f5225a1dfb4d0e63b0ecafd4cffe569b5d532b25dd22b",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-3795403a5736f82e5b82d39c857200bf818761d40780f24b70e60389e0ff0be2",
+      "source_refs": [
+        "generated_tree"
+      ]
+    },
+    "protocol.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-c30675f0661bcb9c65e4eefc22cebbc5c4ea1a8faccb50ea53e75f3184d61971",
+      "source_refs": []
+    },
+    "rules/architecture.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-7409532bd09820d908655f5300a8c35718a7d3e9adb2b5ff35ddfd234b15b233",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "rules/coding.md": {
+      "provenance": "",
+      "arch_version": "",
+      "renderer_version": "",
+      "content_hash": "",
+      "source_refs": []
+    },
+    "rules/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-e263a781a528aaff294782dcbe8c34d84f1bce74c23329af21d71816954c7ef0",
+      "source_refs": [
+        "arch_state.decisions"
+      ]
+    },
+    "schemas/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-37fcc927a5791d81cc785986e76851bdbcaa71655c4f6396f022031cfd68cae0",
+      "source_refs": [
+        "low_level_state.data"
+      ]
+    },
+    "workflows/index.md": {
+      "provenance": "derived",
+      "arch_version": 1,
+      "renderer_version": 2,
+      "content_hash": "sha256-fc47ddc9dc340cff1b01ad08d1cdb0029871d2db3b455c129be5170eafd4025e",
+      "source_refs": [
+        "low_level_state.build_order"
+      ]
+    }
+  }
+}
