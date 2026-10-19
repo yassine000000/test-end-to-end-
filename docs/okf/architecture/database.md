@@ -21,7 +21,7 @@ It does not own the browser UI, external API calls, or user accounts. It only su
 
 ## Key Components
 
-- Temporary cached API responses — stores weather responses for ten minutes.
+- Temporary cached API responses — stores provider weather (current observation, five-day forecast, update time) for ten minutes, keyed by coordinates; the caller's selected-location label is not stored.
 - Cache entry metadata — tracks cache key, payload, creation time, and expiration time.
 - Configuration storage — holds backend runtime configuration that needs relational persistence.
 
@@ -36,7 +36,7 @@ It does not own the browser UI, external API calls, or user accounts. It only su
 
 ## Interfaces
 
-- Called by the backend cache and search modules through the `pg` PostgreSQL client.
+- Called by the backend cache and search modules.
 - Stores temporary weather responses and cache timestamps.
 - Returns cached data to the backend when the ten-minute window is still valid.
 - Persists runtime configuration needed by the backend API.
