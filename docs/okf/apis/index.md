@@ -13,9 +13,5 @@ source_refs: [low_level_state.api]
 
 # APIs (from ③)
 
-| Method | Path | Query parameters | Success response |
-|---|---|---|---|
-| `GET` | `/api/locations/search` | `q` — city name, at least two characters | `{ locations: CityLocation[] }` |
-| `GET` | `/api/weather` | `latitude`, `longitude`; optional selected-location display metadata | `WeatherResponse` with current weather, five forecast days, cache status, and update time |
-
-Both endpoints return a normalized `ApiErrorResponse` for validation, provider, network, timeout, and cache-configuration failures.
+- `GET /api/locations/search`
+- `GET /api/weather`

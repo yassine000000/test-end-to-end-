@@ -13,7 +13,7 @@
 - `.claude/mcp.json` — MCP server configuration.
 
 ## Architecture Overview
-This project uses a Vite-built React web app and an Express REST JSON API. Open-Meteo is accessed only by the backend; `pg` persists the ten-minute weather cache in PostgreSQL. See `docs/okf/architecture/system.md` for the overview and `docs/okf/decisions/` for locked ADRs.
+This project follows a React web app with a lightweight Node.js REST JSON API pattern — see `docs/okf/architecture/system.md` for the overview and `docs/okf/decisions/` for locked ADRs.
 
 ## Repository Structure
 
@@ -96,8 +96,8 @@ project/
 # 1. Install dependencies
 npm install
 
-# 2. Configure environment (copy `.env.example` to `.env`)
-# Set DATABASE_URL to your managed PostgreSQL connection string.
+# 2. Configure environment
+cp .env.example .env
 
 # 3. Start development
 npm run dev

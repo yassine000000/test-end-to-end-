@@ -36,7 +36,7 @@ It does not own the browser UI, external API calls, or user accounts. It only su
 
 ## Interfaces
 
-- Called by the backend cache and search modules through the `pg` PostgreSQL client.
+- Called by the backend cache and search modules.
 - Stores temporary weather responses and cache timestamps.
 - Returns cached data to the backend when the ten-minute window is still valid.
 - Persists runtime configuration needed by the backend API.

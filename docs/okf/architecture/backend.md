@@ -19,9 +19,9 @@ This layer owns the lightweight Node.js REST JSON API that exposes two public en
 
 ## Key Components
 
-- Geocoding module — queries Open-Meteo's geocoding API to resolve city names to coordinates
-- Weather module — fetches current observations and five-day forecasts from Open-Meteo's forecast API
-- Cache module — maintains 10-minute temporary weather response cache in PostgreSQL through `pg`
+- Geocoding module — queries the external geocoding provider to resolve city names to coordinates
+- Weather module — fetches current observations and five-day forecasts from the weather provider
+- Cache module — maintains 10-minute temporary weather response cache with expiration logic
 - Search module — coordinates location search, weather retrieval, cache validation, and request shaping
 - Errors module — normalizes unknown city, external API failure, network failure, and timeout responses
 
@@ -31,7 +31,6 @@ This layer owns the lightweight Node.js REST JSON API that exposes two public en
 - Calls integration services for geocoding provider and weather provider requests
 - Writes to database layer for temporary cached API responses (expiresAt)
 - Depends on error states from Errors module for retryable UI patterns
-- Is implemented as an Express REST JSON service.
 
 ## Related
 

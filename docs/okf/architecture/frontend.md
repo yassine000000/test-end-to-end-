@@ -39,7 +39,6 @@ It does not own provider integrations, cache policy, or persistent storage. It o
 - Calls the backend REST JSON API for city search and weather data.
 - Receives normalized JSON responses and renders the current view state.
 - Uses React Query to manage request state on the client.
-- Uses Vite to serve and bundle the React application.
 
 ## Related
 

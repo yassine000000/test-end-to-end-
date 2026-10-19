@@ -30,7 +30,3 @@ source_refs: [arch_state.decisions]
 | [ADR-013](adr-013.md) | `stack.framework` | React web app with a lightweight Node.js API | locked |
 | [ADR-014](adr-014.md) | `stack.language` | TypeScript | locked |
 | [ADR-015](adr-015.md) | `stack.ui_library` | Tailwind CSS | locked |
-| [ADR-016](adr-016.md) | `stack.build_tool` | Vite | locked |
-| [ADR-017](adr-017.md) | `stack.api_framework` | Express | locked |
-| [ADR-018](adr-018.md) | `stack.postgres_client` | pg | locked |
-| [ADR-019](adr-019.md) | `integration.weather_provider` | Open-Meteo geocoding and forecast APIs | locked |
