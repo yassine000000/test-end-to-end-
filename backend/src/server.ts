@@ -2,9 +2,9 @@ import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
 import { WeatherCache } from '../../cache/weather-cache.js';
-import type { CityLocation } from '../../shared/weather.js';
 import { handleError, sendError } from './errors.js';
 import { SearchCoordinator } from './search.js';
+import { parseSelectedLocation } from './selected-location.js';
 
 const port = Number(process.env.PORT ?? 3001);
 const app = express();
@@ -58,18 +58,8 @@ app.get('/api/weather', async (request, response) => {
   }
 
   try {
+    const location = parseSelectedLocation(encodedLocation, latitude, longitude);
     if (configurationError || !cache) throw configurationError ?? new Error('Weather cache is not configured.');
-    const location: CityLocation = encodedLocation
-      ? (JSON.parse(encodedLocation) as CityLocation)
-      : {
-          id: 0,
-          name: 'Selected location',
-          country: '',
-          countryCode: '',
-          latitude,
-          longitude,
-          timezone: 'auto'
-        };
     const payload = await search.weather(location);
     response.json(payload);
   } catch (error) {

@@ -26,8 +26,10 @@ It does not own provider integrations, cache policy, or persistent storage. It o
 - Location selector — lets the user choose the correct match when several cities are returned.
 - Weather summary panel — shows current temperature, conditions, humidity, wind speed, icon, and last updated time.
 - Forecast cards — show the five-day forecast with daily minimum and maximum temperatures plus conditions.
-- Loading, error, and retry states — keep request status visible and allow the user to try again.
+- Loading, error, and retry states — keep request status visible and allow the user to try again. Retry is offered only for retryable failures (provider, network, timeout); a not-retryable error such as an unknown city shows the message and the user searches again with the input preserved.
 - React Query state — manages fetching, caching, retries, and loading state on the client.
+
+The UI components (search form, location selector, weather summary panel, forecast cards, loading and error/retry messages) live in `frontend/src/components/`; `frontend/src/App.tsx` composes the homepage.
 
 | Route | Purpose |
 |---|---|
