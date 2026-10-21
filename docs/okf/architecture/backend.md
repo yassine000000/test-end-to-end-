@@ -32,6 +32,10 @@ This layer owns the lightweight Node.js REST JSON API that exposes two public en
 - Writes to database layer for temporary cached API responses (expiresAt)
 - Depends on error states from Errors module for retryable UI patterns
 
+## Validation
+
+The API is built by `createApp` in `backend/src/server.ts`; `start()` adds the PostgreSQL cache and listens only when the file is run directly. `backend/src/flows.e2e.test.ts` runs both locked flows (`flow_city_weather_lookup`, `flow_retry_weather_request`) and the public read-only rule over real HTTP against these routes, replacing only the two external edges: the weather provider and the cache (an in-memory store with the same ten-minute expiry).
+
 ## Related
 
 - docs/okf/architecture/system.md
