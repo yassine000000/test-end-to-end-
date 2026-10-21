@@ -11,6 +11,20 @@ export class ApiError extends Error {
   }
 }
 
+/** Network failures (no API response) are retryable; API errors say so themselves. */
+export function canRetry(error: unknown): boolean {
+  return !(error instanceof ApiError) || error.retryable;
+}
+
+export function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+}
+
+/** React Query retry policy: never repeat a request the API marked as not retryable (e.g. unknown city). */
+export function retryPolicy(failureCount: number, error: unknown): boolean {
+  return canRetry(error) && failureCount < 2;
+}
+
 async function request<T>(path: string): Promise<T> {
   const response = await fetch(`${apiBaseUrl}${path}`);
   if (!response.ok) {

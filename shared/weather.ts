@@ -38,9 +38,12 @@ export interface WeatherResponse {
   updatedAt: string;
 }
 
+/** Provider data shared by every caller of the same coordinates; never carries a caller's location label. */
+export type CachedWeather = Pick<WeatherResponse, 'current' | 'forecast' | 'updatedAt'>;
+
 export interface CacheEntry {
   key: string;
-  payload: WeatherResponse;
+  payload: CachedWeather;
   createdAt: string;
   expiresAt: string;
 }

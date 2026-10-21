@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
-import type { WeatherResponse } from '../shared/weather.js';
+import type { CachedWeather } from '../shared/weather.js';
 
-const cacheDurationMs = 10 * 60 * 1000;
+export const cacheDurationMs = 10 * 60 * 1000;
 
 export class ConfigurationError extends Error {}
 
@@ -27,15 +27,15 @@ export class WeatherCache {
     await this.pool.query('CREATE INDEX IF NOT EXISTS weather_cache_expires_at_idx ON weather_cache (expires_at)');
   }
 
-  async get(key: string): Promise<WeatherResponse | null> {
-    const result = await this.pool.query<{ payload: WeatherResponse }>(
+  async get(key: string): Promise<CachedWeather | null> {
+    const result = await this.pool.query<{ payload: CachedWeather }>(
       'SELECT payload FROM weather_cache WHERE cache_key = $1 AND expires_at > NOW()',
       [key]
     );
     return result.rows[0]?.payload ?? null;
   }
 
-  async set(key: string, payload: WeatherResponse): Promise<void> {
+  async set(key: string, payload: CachedWeather): Promise<void> {
     await this.pool.query(
       `INSERT INTO weather_cache (cache_key, payload, expires_at)
        VALUES ($1, $2, NOW() + ($3 * INTERVAL '1 millisecond'))

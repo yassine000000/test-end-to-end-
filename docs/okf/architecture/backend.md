@@ -19,10 +19,10 @@ This layer owns the lightweight Node.js REST JSON API that exposes two public en
 
 ## Key Components
 
-- Geocoding module — queries Open-Meteo's geocoding API to resolve city names to coordinates
-- Weather module — fetches current observations and five-day forecasts from Open-Meteo's forecast API
-- Cache module — maintains 10-minute temporary weather response cache in PostgreSQL through `pg`
-- Search module — coordinates location search, weather retrieval, cache validation, and request shaping
+- Geocoding module — queries the external geocoding provider to resolve city names to coordinates
+- Weather module — fetches current observations and five-day forecasts from the weather provider
+- Cache module — maintains 10-minute temporary weather response cache with expiration logic. Entries are keyed by coordinates and shared by all callers, so they hold provider weather only, never a caller's location label
+- Search module — coordinates location search, weather retrieval, cache validation, and request shaping. The optional selected-location metadata on `/api/weather` is validated against the requested coordinates (mismatch or malformed → `400 VALIDATION_ERROR`, not retryable)
 - Errors module — normalizes unknown city, external API failure, network failure, and timeout responses
 
 ## Interfaces
@@ -31,7 +31,10 @@ This layer owns the lightweight Node.js REST JSON API that exposes two public en
 - Calls integration services for geocoding provider and weather provider requests
 - Writes to database layer for temporary cached API responses (expiresAt)
 - Depends on error states from Errors module for retryable UI patterns
-- Is implemented as an Express REST JSON service.
+
+## Validation
+
+The API is built by `createApp` in `backend/src/server.ts`; `start()` adds the PostgreSQL cache and listens only when the file is run directly. `backend/src/flows.e2e.test.ts` runs both locked flows (`flow_city_weather_lookup`, `flow_retry_weather_request`) and the public read-only rule over real HTTP against these routes, replacing only the two external edges: the weather provider and the cache (an in-memory store with the same ten-minute expiry).
 
 ## Related
 

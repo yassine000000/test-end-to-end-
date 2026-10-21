@@ -44,9 +44,9 @@
 
 ## Phase 7 — Validation and Delivery (phase_flows)
 
-- [ ] Validate the city weather lookup flow end-to-end.
-- [ ] Validate the retry weather request flow end-to-end.
-- [ ] Confirm the homepage remains public and requires no login.
+- [x] Validate the city weather lookup flow end-to-end.
+- [x] Validate the retry weather request flow end-to-end.
+- [x] Confirm the homepage remains public and requires no login.
 - [ ] Confirm the build matches the locked architecture before final bundle export.
 
 ## Finalize Build
